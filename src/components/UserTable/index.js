@@ -1,61 +1,10 @@
 import Table from 'react-bootstrap/Table';
 import Form from 'react-bootstrap/Form';
 import Spinner from 'react-bootstrap/Spinner';
-import { useCallback, useState } from 'react';
+import { useCallback } from 'react';
 import './styles.css';
 
 import ListItem from './components/ListItem';
-
-const users = [
-  {
-    id: '1',
-    name: 'Name',
-    email: 'Email',
-    registerDate: new Date(new Date().setMonth(new Date().getMonth() - 1)).toISOString(),
-    lastLoginDate: new Date().toISOString(),
-    status: 'active',
-  },
-  {
-    id: '2',
-    name: 'Name',
-    email: 'Email',
-    registerDate: new Date(new Date().setMonth(new Date().getMonth() - 1)).toISOString(),
-    lastLoginDate: new Date().toISOString(),
-    status: 'active',
-  },
-  {
-    id: '3',
-    name: 'Name',
-    email: 'Email',
-    registerDate: new Date(new Date().setMonth(new Date().getMonth() - 1)).toISOString(),
-    lastLoginDate: new Date().toISOString(),
-    status: 'active',
-  },
-  {
-    id: '4',
-    name: 'Name',
-    email: 'Email',
-    registerDate: new Date(new Date().setMonth(new Date().getMonth() - 1)).toISOString(),
-    lastLoginDate: new Date().toISOString(),
-    status: 'active',
-  },
-  {
-    id: '5',
-    name: 'Name',
-    email: 'Email',
-    registerDate: new Date(new Date().setMonth(new Date().getMonth() - 1)).toISOString(),
-    lastLoginDate: new Date().toISOString(),
-    status: 'active',
-  },
-  {
-    id: '6',
-    name: 'Name',
-    email: 'Email',
-    registerDate: new Date(new Date().setMonth(new Date().getMonth() - 1)).toISOString(),
-    lastLoginDate: new Date().toISOString(),
-    status: 'active',
-  },
-];
 
 const UserTable = ({ usersList, loading, checkedUsers, setCheckedUsers }) => {
   const onCheckClick = useCallback(id => {
@@ -65,7 +14,7 @@ const UserTable = ({ usersList, loading, checkedUsers, setCheckedUsers }) => {
   }, []);
 
   const onAllClick = () => {
-    setCheckedUsers(oldChecked => (oldChecked.length === users.length ? [] : users.map(({ id }) => id)));
+    setCheckedUsers(oldChecked => (oldChecked.length === usersList.length ? [] : usersList.map(({ id }) => id)));
   };
 
   if (loading) {
@@ -84,9 +33,9 @@ const UserTable = ({ usersList, loading, checkedUsers, setCheckedUsers }) => {
             <Form.Check
               inline
               type={'checkbox'}
-              label={checkedUsers.length !== users.length ? 'Check all' : 'Uncheck all'}
+              label={checkedUsers.length !== usersList.length ? 'Check all' : 'Uncheck all'}
               onChange={onAllClick}
-              checked={checkedUsers.length === users.length}
+              checked={checkedUsers.length === usersList.length}
             />
           </th>
           <th>Id</th>
