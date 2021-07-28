@@ -5,10 +5,8 @@ export const API_ROUTES = {
 };
 
 export const fetchData = async (route, data) => {
-  console.log(process.env);
-  console.log(process.env.API_ROUTE);
   const token = JSON.parse(localStorage.getItem('authToken'));
-  const result = await fetch(process.env.API_ROUTE + '/api/users/' + route, {
+  const result = await fetch('https://itr4back.herokuapp.com/api/users/' + route, {
     ...data,
     headers: {
       ...data.headers,
