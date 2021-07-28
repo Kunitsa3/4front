@@ -37,7 +37,7 @@ export const renderRoutes = () =>
     };
 
     if (is404) {
-      return <Redirect to="login" />;
+      return <Redirect to="login" key={route.path?.toString()} />;
     }
 
     return <AuthorizedRoute {...routeProps} />;

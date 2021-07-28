@@ -1,11 +1,11 @@
 import { Redirect, Route } from 'react-router-dom';
 
-export const AuthorizedRoute = ({ authorizedOnly, ...props }) => {
+export const AuthorizedRoute = ({ authorizedOnly, key, ...props }) => {
   const token = JSON.parse(localStorage.getItem('authToken'));
 
   if (!authorizedOnly) {
-    return <Route {...props} />;
+    return <Route {...props} key={key} />;
   }
 
-  return token ? <Route {...props} /> : <Redirect to="login" />;
+  return token ? <Route {...props} key={key} /> : <Redirect to="login" key={key} />;
 };
