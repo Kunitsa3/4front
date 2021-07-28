@@ -5,9 +5,8 @@ export const API_ROUTES = {
 };
 
 export const fetchData = async (route, data) => {
-  console.log(process.env);
   const token = JSON.parse(localStorage.getItem('authToken'));
-  const result = await fetch('http://localhost:8080/api/users/' + route, {
+  const result = await fetch(process.env.API_ROUTE + '/api/users/' + route, {
     ...data,
     headers: {
       ...data.headers,
