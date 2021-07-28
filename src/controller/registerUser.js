@@ -1,8 +1,9 @@
 import { useHistory } from 'react-router-dom';
-import { fetchData } from '.';
+import { useFetchData } from '.';
 
 export const useRegisterUser = () => {
   const history = useHistory();
+  const fetchData = useFetchData();
 
   const register = async body => {
     const token = await (
