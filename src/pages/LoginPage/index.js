@@ -26,6 +26,10 @@ const LoginPage = () => {
 
   return (
     <div className="wrapper">
+      <p className="title">Log in</p>
+      <Button variant="secondary" onClick={onRegistrationClick} className="navigation-link">
+        Go to registration
+      </Button>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Form.Group className="mb-3">
           <Form.Label>Email address</Form.Label>
@@ -52,12 +56,9 @@ const LoginPage = () => {
           />
           <Form.Control.Feedback type="invalid">Please enter password</Form.Control.Feedback>
         </Form.Group>
-        <div className="button-wrapper">
+        <div className="button-wrapper-login">
           <Button variant="primary" type="submit">
             Submit
-          </Button>
-          <Button variant="secondary" onClick={onRegistrationClick}>
-            Registration
           </Button>
         </div>
       </Form>

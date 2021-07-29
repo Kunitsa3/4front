@@ -25,6 +25,10 @@ const RegistrationPage = () => {
 
   return (
     <div className="wrapper">
+      <p className="title">Register</p>
+      <Button variant="secondary" onClick={onRegistrationClick} className="navigation-link">
+        Go to login
+      </Button>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Form.Group className="mb-3">
           <Form.Label>Email address</Form.Label>
@@ -62,12 +66,9 @@ const RegistrationPage = () => {
           />
           <Form.Control.Feedback type="invalid">Please enter name</Form.Control.Feedback>
         </Form.Group>
-        <div className="button-wrapper">
+        <div className="button-wrapper-registration">
           <Button variant="primary" type="submit">
             Submit
-          </Button>
-          <Button variant="secondary" onClick={onRegistrationClick}>
-            Login
           </Button>
         </div>
       </Form>

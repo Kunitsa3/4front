@@ -7,7 +7,14 @@
   box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
 }
 
-.button-wrapper {
+.button-wrapper-registration {
   display: flex;
-  justify-content: space-between;
+  width: 100%;
+  justify-content: center;
+}
+
+.title {
+  text-align: center;
+  font-weight: 500;
+  font-size: 30px;
 }
