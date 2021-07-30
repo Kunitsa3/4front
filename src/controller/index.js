@@ -10,7 +10,7 @@ export const useFetchData = () => {
   return async (route, data) => {
     try {
       const token = JSON.parse(localStorage.getItem('authToken'));
-      const result = await fetch('http://localhost:8080/api/users/' + route, {
+      const result = await fetch('https://itr4back.herokuapp.com/api/users/' + route, {
         ...data,
         headers: {
           ...data.headers,
@@ -18,12 +18,9 @@ export const useFetchData = () => {
         },
       });
 
-      // console.log(result, 'FETCH_RESULT');
-
       if (result.status === 400) {
         throw await result.json();
       }
-      // console.log(await result.json(), 'FETCH_RESULT');
 
       if (result.status === 403) {
         localStorage.removeItem('authToken');
