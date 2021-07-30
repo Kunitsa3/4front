@@ -8,7 +8,7 @@ import { useEffect } from 'react';
 
 const RegistrationPage = () => {
   const history = useHistory();
-  const { register: registerAction } = useRegisterUser();
+  const { register: registerAction, errors: requestErrors } = useRegisterUser();
   const {
     register,
     handleSubmit,
@@ -66,6 +66,9 @@ const RegistrationPage = () => {
           />
           <Form.Control.Feedback type="invalid">Please enter name</Form.Control.Feedback>
         </Form.Group>
+        <Form.Control.Feedback type="invalid" className={requestErrors && 'display-error'}>
+          {requestErrors}
+        </Form.Control.Feedback>
         <div className="button-wrapper-registration">
           <Button variant="primary" type="submit">
             Submit

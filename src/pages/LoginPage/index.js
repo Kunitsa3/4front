@@ -9,7 +9,7 @@ import { useEffect } from 'react';
 
 const LoginPage = () => {
   const history = useHistory();
-  const { login } = useLoginUser();
+  const { login, errors: requestErrors } = useLoginUser();
   const {
     register,
     handleSubmit,
@@ -56,6 +56,9 @@ const LoginPage = () => {
           />
           <Form.Control.Feedback type="invalid">Please enter password</Form.Control.Feedback>
         </Form.Group>
+        <Form.Control.Feedback type="invalid" className={requestErrors && 'display-error'}>
+          {requestErrors}
+        </Form.Control.Feedback>
         <div className="button-wrapper-login">
           <Button variant="primary" type="submit">
             Submit

@@ -18,3 +18,8 @@
   font-weight: 500;
   font-size: 30px;
 }
+
+.display-error {
+  display: block;
+  margin-bottom: 20px;
+}
